@@ -10,10 +10,12 @@
   <body>
     <h1>Initial Setup</h1>
     <p>Fill out basic information about your current carbon footprint and your device will remember it the next time you open this site.</p>
+    <form id="transportation-form">
       <label for="car-num">Number of cars in your household: </label>
       <input type="number" id="car-num" min="0" max="5" value="0"><br>
       <div id ="cars"></div>
-      <input type="button" id="save" value="Save">
+      <input type="submit" value="Save">
+    </form> 
     <h2 id="carbon-footprint"></h2>
   </body>
   

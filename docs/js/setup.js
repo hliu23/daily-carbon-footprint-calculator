@@ -17,8 +17,9 @@ $(function (){
   });
 
 
-  $("#save").on("click", function (){
+  $("#transportation-form").on("submit", function (){
     var localStorage = window.localStorage;
+    localStorage.removeItem("user");
 
     var user;
     var carNum = $("#car-num").val();
@@ -36,14 +37,16 @@ $(function (){
       user = {...user, ...obj};
       localStorage.setItem("user", JSON.stringify(user));
     }
+    // alert("Your data was successfully saved.");
     
     const CO2_PER_GAL = 19.6;
     const OTHER_EMISSION = 1.01;
     var footprint = totalGal * CO2_PER_GAL * OTHER_EMISSION * 365;
 
-    $("#carbon-footprint").empty();
-    $("#carbon-footprint").append(`<p>You are leaving a carbon footprint of <strong>${footprint}</strong> lbs/yr.</p>`);
-    
+    var sessionStorage = window.sessionStorage;
+    sessionStorage.setItem("initialFootprint", footprint);
+    window.location.replace("./saved.html");
+    // $("#carbon-footprint").append(`<p>You are leaving a carbon footprint of <strong>${footprint}</strong> lbs/yr.</p>`);
   })
 
   
