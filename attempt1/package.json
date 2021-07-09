@@ -25,6 +25,7 @@
   "homepage": "https://github.com/hliu23/daily-carbon-footprint-calculator#readme",
   "dependencies": {
     "clndr": "^1.5.1",
+    "googleapis": "^81.0.0",
     "mongodb": "^3.6.10"
   }
 }
