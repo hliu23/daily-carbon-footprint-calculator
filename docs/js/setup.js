@@ -1,5 +1,9 @@
 $(function (){
-    
+  var localStorage = window.localStorage;
+  var sessionStorage = window.sessionStorage;
+
+  if (localStorage.getItem("setup") !== null) window.location.replace("./saved.html");
+  
   $("#car-num").on("change", function (){
     $("#cars").empty();
     var carNum = $("#car-num").val();
@@ -18,7 +22,6 @@ $(function (){
 
 
   $("#transportation-form").on("submit", function (){
-    var localStorage = window.localStorage;
     localStorage.removeItem("user");
 
     var user;
@@ -37,18 +40,16 @@ $(function (){
       user = {...user, ...obj};
       localStorage.setItem("user", JSON.stringify(user));
     }
-    // alert("Your data was successfully saved.");
     
     const CO2_PER_GAL = 19.6;
     const OTHER_EMISSION = 1.01;
     var footprint = totalGal * CO2_PER_GAL * OTHER_EMISSION * 365;
 
-    var sessionStorage = window.sessionStorage;
     sessionStorage.setItem("initialFootprint", footprint);
-    window.location.replace("./saved.html");
-    // $("#carbon-footprint").append(`<p>You are leaving a carbon footprint of <strong>${footprint}</strong> lbs/yr.</p>`);
+    localStorage.setItem("setup", "true");
   })
 
+  
   
   for (i = 0; i < localStorage.length; i++)   {
     console.log(localStorage.key(i) + ", " + localStorage.getItem(localStorage.key(i)));
