@@ -7,6 +7,7 @@ $(function (){
   $("#car-num").on("change", function (){
     $("#cars").empty();
     var carNum = $("#car-num").val();
+    // if more than 10 entered as car number?
     for (let i = 1; i <= carNum; i++) {
       let element = 
       `<div id="car-${i}">
