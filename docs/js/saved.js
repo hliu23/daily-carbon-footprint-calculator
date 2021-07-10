@@ -6,7 +6,7 @@ $(function (){
 
   $("#footprint").append(sessionStorage.getItem("initialFootprint"));
 
-  $("#reset").click(function (){
+  $("#reset").on("click", function (){
     localStorage.removeItem("setup");
     window.location.replace("./setup.html");
   })

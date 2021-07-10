@@ -2,6 +2,7 @@ $(function (){
   var localStorage = window.localStorage;
   var sessionStorage = window.sessionStorage;
 
+  // as settings page?
   if (localStorage.getItem("setup") !== null) window.location.replace("./saved.html");
   
   $("#car-num").on("change", function (){

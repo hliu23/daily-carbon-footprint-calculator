@@ -3,13 +3,6 @@ var url = require("url");
 var fs = require("fs");
 // var MongoClient = require("mongodb").MongoClient;
 
-// const mongoUrl = "mongodb+srv://hliu23:Rd8IrvP313BixT1Ocel5jh0w@dcfc.wkwac.mongodb.net/Daily%20Carbon%20Footprint%20Calculator?retryWrites=true&w=majority";
-const { MongoClient } = require("mongodb");
- 
-// Replace the following with your Atlas connection string                                                                                                                                        
-// const mongoUrl = "mongodb+srv://hliu23:Rd8IrvP313BixT1Ocel5jh0w@dcfc.mongodb.net/Daily%20Carbon%20Footprint%20Calculator?retryWrites=true&w=majority&useNewUrlParser=true&useUnifiedTopology=true";
-const mongoUrl = "mongodb://hliu23:Rd8IrvP313BixT1Ocel5jh0w@cluster0-shard-00-00-zcbag.mongodb.net:27017,cluster0-shard-00-01-zcbag.mongodb.net:27017,cluster0-shard-00-02-xvnqv.mongodb.net:27017/zcbag?ssl=true&replicaSet=Cluster0-shard-0&authSource=test&retryWrites=true&w=majority";
-
 const client = new MongoClient(mongoUrl);
 async function run() {
     try {
