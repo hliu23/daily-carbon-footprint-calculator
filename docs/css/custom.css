@@ -1,0 +1,9 @@
+:root {
+  --main-color: #67B85D;
+  --background-color: #FFFFFF;
+  --font-color: #1A1A1A;
+}
+
+.btn-default {
+  background-color: var(--main-color);
+}
