@@ -16,6 +16,7 @@
     <script defer src="js/jquery-3.6.0.min.js"></script>
     <script defer src="custom-bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script defer src="js/load.js"></script>
+    <script defer src="js/function.js"></script>
     <script defer src="js/setup.js"></script>
   </head>
   <body>
@@ -27,10 +28,10 @@
     <form id="transportation-form">
       <div class="form-group">
         <label for="car-num">Number of cars in your household: </label>
-        <input type="number" id="car-num" class="form-control" min="0" max="10" value="0"><br>
+        <input type="number" id="car-num" class="form-control" min="1" max="10"><br>
       </div>
       <div class="form-group">
-        <div id ="cars"></div>
+        <div id="cars"></div>
       </div>
       <div class="form-group">
         <input type="submit" value="Save">

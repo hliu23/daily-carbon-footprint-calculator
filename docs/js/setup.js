@@ -25,7 +25,7 @@ $(function (){
 
   $("#transportation-form").on("submit", function (){
     var conf = true;
-    if (localStorage.getItem("user") !== null) conf = confirm("This action will erase your previously saved data.");
+    if (localStorage.getItem("user") !== null) conf = confirm("You have previously saved data which will be erased by this action.");
     
     if (conf) {
       localStorage.removeItem("user");
@@ -46,23 +46,28 @@ $(function (){
         user = {...user, ...obj};
         localStorage.setItem("user", JSON.stringify(user));
       }
+      localStorage.setItem("car-num", carNum);
     
       const CO2_PER_GAL = 19.6;
       const OTHER_EMISSION = 1.01;
       var footprint = totalGal * CO2_PER_GAL * OTHER_EMISSION * 365;
+      var date = yyyymmdd(new Date());
 
-      sessionStorage.setItem("initialFootprint", footprint);
+      var footprintObj = {
+        "footprint" : footprint,
+        "date" : date
+      };
+
+      localStorage.setItem("initialFootprint", JSON.stringify(footprintObj));
       // if no user set
       localStorage.setItem("setup", "true");
+      alert("Your data were successfully saved.");
     }
     
   })
-
-  
   
   for (i = 0; i < localStorage.length; i++)   {
     console.log(localStorage.key(i) + ", " + localStorage.getItem(localStorage.key(i)));
   }
-
 
 })

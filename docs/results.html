@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="custom-bootstrap-3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat&display=swap">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/results.css">
 
     <script defer src="js/jquery-3.6.0.min.js"></script>
     <script defer src="custom-bootstrap-3.4.1/js/bootstrap.min.js"></script>
@@ -20,36 +21,45 @@
   </head>
   <body>
 
-    <img src="media/logo.png">
     <div id="nav-bar"></div>
 
     <h1 id="title">Achievement Log</h1>
-    <h2 id="calendar-month"></h2>
-    <button type="button" class="btn btn-default">
-      <span class="glyphicon glyphicon-align-left"></span>
-    </button>
-    <table id="calendar">
-      <thead>
-        <tr>
-          <th>Sunday</th>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-          <th>Saturday</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr id="row-1"></tr>
-        <tr id="row-2"></tr>
-        <tr id="row-3"></tr>
-        <tr id="row-4"></tr>
-        <tr id="row-5"></tr>
-        <tr id="row-6"></tr>
-      </tbody>
-      
-    </table>
-    
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9">
+        
+          <h2 id="calendar-month"></h2>
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-menu-left"></span>
+            Previous Month
+          </button>
+          <button type="button" class="btn btn-default">
+            Next Month
+            <span class="glyphicon glyphicon-menu-right"></span>
+          </button>
+          <table id="calendar" class="table">
+            <thead>
+              <tr>
+                <th>Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="row-1"></tr>
+              <tr id="row-2"></tr>
+              <tr id="row-3"></tr>
+              <tr id="row-4"></tr>
+              <tr id="row-5"></tr>
+              <tr id="row-6"></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
