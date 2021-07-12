@@ -24,31 +24,38 @@ $(function (){
 
 
   $("#transportation-form").on("submit", function (){
-    localStorage.removeItem("user");
+    var conf = true;
+    if (localStorage.getItem("user") !== null) conf = confirm("This action will erase your previously saved data.");
+    
+    if (conf) {
+      localStorage.removeItem("user");
 
-    var user;
-    var carNum = $("#car-num").val();
-    var totalGal = 0;
-    for (var i = 1; i <= carNum; i++) {
-      let miGal = $(`#car-${i}-mi-gal`).val();
-      let miDay = $(`#car-${i}-mi-day`).val(); 
-      let gallons = miGal / miDay;
-      totalGal += gallons;
+      var user;
+      var carNum = $("#car-num").val();
+      var totalGal = 0;
+      for (var i = 1; i <= carNum; i++) {
+        let miGal = $(`#car-${i}-mi-gal`).val();
+        let miDay = $(`#car-${i}-mi-day`).val(); 
+        let gallons = miGal / miDay;
+        totalGal += gallons;
 
-      let objName = `car${i}`;
-      let obj = {
-        [`car${i}`] : {"miPerGal": miGal, "miPerDay": miDay}
+        let objName = `car${i}`;
+        let obj = {
+          [`car${i}`] : {"miPerGal": miGal, "miPerDay": miDay}
+        }
+        user = {...user, ...obj};
+        localStorage.setItem("user", JSON.stringify(user));
       }
-      user = {...user, ...obj};
-      localStorage.setItem("user", JSON.stringify(user));
+    
+      const CO2_PER_GAL = 19.6;
+      const OTHER_EMISSION = 1.01;
+      var footprint = totalGal * CO2_PER_GAL * OTHER_EMISSION * 365;
+
+      sessionStorage.setItem("initialFootprint", footprint);
+      // if no user set
+      localStorage.setItem("setup", "true");
     }
     
-    const CO2_PER_GAL = 19.6;
-    const OTHER_EMISSION = 1.01;
-    var footprint = totalGal * CO2_PER_GAL * OTHER_EMISSION * 365;
-
-    sessionStorage.setItem("initialFootprint", footprint);
-    localStorage.setItem("setup", "true");
   })
 
   
