@@ -1,17 +1,17 @@
 $(function () {
   newCalendar();
 
-  var previousDate = new Date();
+  var date = new Date();
   var nextDate = new Date();
 
   $("#previous-month").on("click", function () {
-    previousDate.setMonth(previousDate.getMonth()-1);
-    newCalendar(previousDate);
+    date.setMonth(date.getMonth()-1);
+    newCalendar(date);
   })
 
   $("#next-month").on("click", function () {
-    nextDate.setMonth(nextDate.getMonth()+1);
-    newCalendar(nextDate);
+    date.setMonth(date.getMonth()+1);
+    newCalendar(date);
   })
 }) 
 
@@ -32,7 +32,7 @@ function newCalendar(date = new Date()) {
     $(`#row-${i}`).empty();
   }
 
-  // next element
+  
   var row = 1;
   var column = 1;
 
@@ -46,20 +46,20 @@ function newCalendar(date = new Date()) {
     // local storage: goal; pull info from that day; compare; color; hover
     var day = new Date(dateYear, dateMonth, i);
     
-    if (window.localStorage.getItem(yyyymmdd(day)) > goal) var result = "custom-success"; //|failure | not started | future
+    if (window.localStorage.getItem(yyyymmdd(day)) > goal) var result = "success"; //|failure | not started | future
     $(`#row-${row}`).append(`<td id=\"${yyyymmdd(day)}\" class=\"current ${result}\">${i}</td>`);
     column++;
-    if (day.getDay() == 6) {
+    if (day.getDay() == 6 && i !== last.getDate()) {
       row++;
       column = 1;
     }
   }
   
-  for (var i = row; i <= 6; i++) {
+  // for (var i = row; i <= 6; i++) {
     for (var j = column; j <= 7; j++) {
-      $(`#row-${i}`).append("<td class=\"next\"></td>");
+      $(`#row-${row}`).append("<td class=\"next\"></td>");
     }
-    column = 1;
-  }
+    // column = 1;
+  // }
    
 }
