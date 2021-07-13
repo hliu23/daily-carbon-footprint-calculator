@@ -32,8 +32,8 @@ $(function (){
       let element = 
       `<div class=\"car${i}\">
         Car ${i}:&nbsp;&nbsp;
-        <input type=\"checkbox\" class=\"custom-engine\"></input> keep engine in tune | 
-        <input type=\"checkbox\" class=\"custom-tire\"></input> keep tires properly inflated
+        <input type=\"checkbox\" class=\"custom-engine\"></input><span> keep engine in tune | </span>
+        <input type=\"checkbox\" class=\"custom-tire\"></input><span> keep tires properly inflated</span>
       </div>`;
       $("#maintenance").append(element);
     }
@@ -48,16 +48,19 @@ $(function (){
   const ENGINE_REDUCE = 0.04;
   const TIRE_REDUCE = 0.006;
 
+  $(".car1").on("change", ".custom-engine", function () {
+    console.log("check");
+    var engineReduce = gallons * CO2_PER_GAL * OTHER_EMISSION * 365 * ENGINE_REDUCE;
+    reduceFootprint += engineReduce;
+  })
+
   // not successful yet
   $("#submit").on("click", function() {
+    
     for (var j = 1; j <= carNum; j++) {
       var gallons = user[`car${j}`]["miPerGal"] / user[`car${j}`]["miPerDay"];
   
-      if ($(`.car${j} > .custom-engine`).checked) {
-        console.log("check")
-        var engineReduce = gallons * CO2_PER_GAL * OTHER_EMISSION * 365 * ENGINE_REDUCE;
-        reduceFootprint += engineReduce;
-      }
+      
   
       if ($(`.car${j} > .custom-tire`).checked) {
         var tireReduce = gallons * CO2_PER_GAL * OTHER_EMISSION * 365 * TIRE_REDUCE;
