@@ -1,12 +1,12 @@
 # Daily Carbon Footprint Calculator
 
 ## Description
-This project seeks to help the user keep track of their carbon footprint by streamlining carbon footprint calculations and personal goal setting. The user only needs to set up their basic information once and log their daily activities within a few seconds each day to have their carbon footprint calculated, compared to their selected carbon footprint goals, and their process recorded on an accessible calendar.  
+This project seeks to help the user keep track of their carbon footprint by streamlining carbon footprint calculations and personal goal setting. The user only needs to set up their basic information once and log their daily activities with a few seconds each day to have their carbon footprint calculated, compared to their selected carbon footprint goals, and their process recorded on an accessible calendar.  
 
 ## [Site](https://hliu23.github.io/daily-carbon-footprint-calculator/)  
 - Built from docs directory  
 
-### Notes
+## Notes
 - This site does all calculations on the client side and uses local storage  
   - We does not keep track of your data  
   - However, you may need to reenter your basic info if you clear your browser cache  
@@ -22,6 +22,7 @@ This project seeks to help the user keep track of their carbon footprint by stre
 - Icons from [Glyphicons](https://www.glyphicons.com/)
 
 ## Future Improvements
-- daily email reminders
-- entering daily information in notification window
-- motivating quotes about sustainability on the homepage
+- Daily email reminders
+- Entering daily information in notification window
+- Motivating quotes about sustainability on the homepage
+- SEO
