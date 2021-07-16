@@ -2,7 +2,6 @@ $(function () {
   newCalendar();
 
   var date = new Date();
-  var nextDate = new Date();
 
   $("#previous-month").on("click", function () {
     date.setMonth(date.getMonth()-1);

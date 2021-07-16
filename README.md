@@ -5,6 +5,7 @@ This project seeks to help the user keep track of their carbon footprint by stre
 
 ## [Site](https://hliu23.github.io/daily-carbon-footprint-calculator/)  
 - Built from docs directory  
+- Updates have been made since submission of the project - the state of the repo when submitted can be found [here](https://github.com/hliu23/daily-carbon-footprint-calculator/tree/80cf7ebfce1fa98ff3649770cba6bf6f4719405b)
 
 ## Notes
 - This site does all calculations on the client side and uses local storage  
