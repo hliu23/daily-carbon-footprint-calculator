@@ -71,12 +71,4 @@ $(function (){
   // console.log(footprint["footprint"] - reduceFootprint);
   // $("#projected-footprint").append(footprint["footprint"] - reduceFootprint);
   })
-
-  
-
-  
-
-
-  
-
 })
